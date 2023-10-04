@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Login</title>
+</head>
+<body>
+    <h1>Customer Login</h1>
+    
+    <form action="customerlogin" method="post">
+        <label for="username">Customer ID:</label>
+        <input type="text" id="username" name="username" required><br>
+        
+        <label for="name">Password:</label>
+        <input type="password" id="name" name="name" required><br>
+        
+        <input type="submit" value="Login">
+    </form>
+    
+    <p>${error}</p>
+</body>
+</html>

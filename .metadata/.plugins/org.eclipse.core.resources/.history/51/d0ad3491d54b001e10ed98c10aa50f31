@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Billing Details</title>
+</head>
+<body>
+	<h4>BILL RECEIPT</h4>
+	<form action="back">
+		<input type="submit" value="Back"/>
+	</form>
+	    <table border="1">
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Product Cost</th>
+            <th>Product Discount</th>
+        </tr>
+        <c:forEach var="cart" items="${list}">
+            <tr>
+                <td>${cart.id}</td>
+                <td>${cart.name}</td>
+                <td>${cart.cost}</td>
+                <td>${cart.discount}</td>
+            </tr>
+        </c:forEach>
+    </table>
+	<h4>TOTAL AMOUNT OF ALL ITEMS :  ${Amount_list} </h4>
+	<h4>TOTAL AMOUNT TO BE PAID:  ${Discount_list} </h4>
+	<h4>SAVED AMOUNT :  ${Saved_list} </h4>
+	<form action="payment">
+		<input type="hidden" name="discount_amt" value="${Discount_list}"/>
+		<input type="submit" value="Move to Payment"/> 
+	</form>
+</body>
+</html>
